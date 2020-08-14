@@ -1,0 +1,35 @@
+server:
+  port: 8012
+  servlet:
+    context-path: '/'  #项目访问路径
+
+spring:
+  application:
+    # 应用程序名字
+    name: springcloud-porduct
+  datasource: # 数据源
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: scott
+    password: 12345678Wb
+  jackson:
+    date-format: 'yyyy-MM-dd' # 格式化json
+
+  resources: #静态资源路径
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
+  thymeleaf:
+    cache: false
+    suffix: .html
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    mode: HTML5
+  messages:
+    encoding: UTF-8
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      # 注册中心路径:如果服务中心设置了context-path要添加context-path路径
+      defaultZone: http://localhost:8001/springeureka/eureka
